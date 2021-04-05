@@ -24,7 +24,12 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
+          env:
+          - name: ENVIRONMENT
+            value: {{ .Release.Namespace }}
+          - name: NAMESPACE
+            value: {{ .Release.Namespace }}
+            ports:
             - name: http
               containerPort: 5000
               protocol: TCP
