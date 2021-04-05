@@ -6,6 +6,7 @@ def hello_world():
     return jsonify({
         'message': 'hello world',
         'environment': os.environ.get('ENVIRONMENT')
+        'namespace': os.environ.get('NAMESPACE')
     })
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
